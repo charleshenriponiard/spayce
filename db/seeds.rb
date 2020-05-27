@@ -19,7 +19,7 @@ users = [{ person: {
   last_name: "Poniard",
   email: "c.poniard@gmail.com",
   password: "secret",
-  phone_number: "06-06-06-06-06",
+  phone_number: "06 06 06 06 06",
   status: 1
 },
   company: {
@@ -41,7 +41,7 @@ users = [{ person: {
   last_name: "Calin",
   email: "benoit.calin@gmail.com",
   password: "secret",
-  phone_number: "06-06-06-06-06",
+  phone_number: "06 06 06 06 06",
   status: 1
 },
   company: {
@@ -68,8 +68,6 @@ users.each do |user|
       user[:company]
   )
 end
-
-
 
 puts "Users and Companies create !! "
 puts "*" * 40
