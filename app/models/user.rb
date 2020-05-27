@@ -6,5 +6,5 @@ class User < ApplicationRecord
   
   has_many :companies
 
-  validates_with EmailValidator
+  validates :email, presence: true, email: true
 end
