@@ -33,7 +33,7 @@ users = [{ person: {
     zip_code: 17430,
     city: "Tonnay-Charente",
     country: "France",
-    code_ape: 12
+    code_ape: '6201Z'
  }
 },
 { person: {
@@ -55,7 +55,7 @@ users = [{ person: {
     zip_code: 33000,
     city: "Bordeaux",
     country: "France",
-    code_ape: 12
+    code_ape: '6201Z'
   }
 }
 ]
