@@ -1,4 +1,5 @@
-
+puts "Remove all Invoices"
+Invoice.delete_all
 puts "Remove all Client"
 Client.delete_all
 puts "Remove all Companies"
@@ -38,7 +39,6 @@ user.companies.create!(
 puts "Users and Companies create !! "
 puts "*" * 40
 
-
 puts "*" * 40
 puts "Clients"
 companies = Company.all
@@ -50,7 +50,26 @@ companies.each do |company|
       name: name,
       email: "#{name.tr(" ", ".").downcase}@gmail.com"
     )
-  end 
+  end
 end 
 puts "*" * 40
 puts "Clients create !"
+
+puts "*" * 40
+puts "Invoices"
+clients = Client.all
+clients.each do |client|
+  name = Faker::Name.name
+  client.invoices.create!(
+    amount: Faker::Number.decimal(l_digits: 4, r_digits: 2),
+    file: "en attente de mieux",
+    description: Faker::Lorem.paragraph_by_chars(number: 256, supplemental: true),
+    ref_number: Faker::Invoice.reference,
+    end_date: Faker::Time.between(from: DateTime.now, to: DateTime.now + rand(10..30)),
+    status: rand(0..4),
+    code_promo: "SPAYCE",
+  )
+end 
+puts "*" * 40
+puts "Invoices create !"
+
