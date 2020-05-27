@@ -1,3 +1,6 @@
+
+puts "Remove all Client"
+Client.delete_all
 puts "Remove all Companies"
 Company.delete_all
 puts "Remove all users"
@@ -34,3 +37,20 @@ user.companies.create!(
 )
 puts "Users and Companies create !! "
 puts "*" * 40
+
+
+puts "*" * 40
+puts "Clients"
+companies = Company.all
+companies.each do |company|
+  3..4.times do
+    name = Faker::Name.name
+    company.clients.create!(
+      company_id: company.id,
+      name: name,
+      email: "#{name.tr(" ", ".").downcase}@gmail.com"
+    )
+  end 
+end 
+puts "*" * 40
+puts "Clients create !"
