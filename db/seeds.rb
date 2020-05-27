@@ -14,16 +14,15 @@ puts "=" * 40
 puts "*" * 40
 puts "Users and Companies"
 
-user = User.create!(
-    first_name: "Charles-henri",
-    last_name: "Poniard",
-    email: "c.poniard@gmail.com",
-    password: "secret",
-    phone_number: "06-06-06-06-06",
-    status: 1
-)
-
-user.companies.create!(
+users = [{ person: {
+  first_name: "Charles-henri",
+  last_name: "Poniard",
+  email: "c.poniard@gmail.com",
+  password: "secret",
+  phone_number: "06-06-06-06-06",
+  status: 1
+},
+  company: {
     name: "Charles-henri Poniard Photographie",
     siret: 	79973482700014,
     legal_structure: "Entrepreneur individuel",
@@ -35,7 +34,43 @@ user.companies.create!(
     city: "Tonnay-Charente",
     country: "France",
     code_ape: 12
-)
+ }
+},
+{ person: {
+  first_name: "Benoit",
+  last_name: "Calin",
+  email: "benoit.calin@gmail.com",
+  password: "secret",
+  phone_number: "06-06-06-06-06",
+  status: 1
+},
+  company: {
+    name: "MONSIEUR BENOIT CALIN",
+    siret: 	84955687300016,
+    legal_structure: "Entrepreneur individuel",
+    vat: 0,
+    start_activity: "27-03-2019",
+    street_number: 8,
+    street: "crs de la martinique",
+    zip_code: 33000,
+    city: "Bordeaux",
+    country: "France",
+    code_ape: 12
+  }
+}
+]
+
+users.each do |user|
+  spayce_user = User.create!(
+    user[:person]
+  )
+  spayce_user.companies.create!(
+      user[:company]
+  )
+end
+
+
+
 puts "Users and Companies create !! "
 puts "*" * 40
 
