@@ -21,6 +21,10 @@ group :development do
   gem 'faker'
 end
 
+group :test do
+  gem 'database_cleaner-active_record'
+end
+
 group :development, :test do
   gem 'pry-byebug'
   gem 'pry-rails'
@@ -28,4 +32,5 @@ group :development, :test do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'dotenv-rails'
+  gem 'rspec-rails', '~> 4.0.0'
 end
