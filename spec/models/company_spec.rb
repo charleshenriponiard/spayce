@@ -5,6 +5,7 @@ RSpec.describe Company, type: :model do
     user = User.create!(
       first_name: "baba",
       last_name: 'Le roux',
+      status: 0,
       email: "test@gmail.com",
       password: "secret",
       phone_number: "06 06 06 06 06",
