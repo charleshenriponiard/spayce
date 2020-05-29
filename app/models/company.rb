@@ -5,6 +5,7 @@ class Company < ApplicationRecord
   has_many :invoices, through: :clients
 
   validates_associated :user
+  validates_associated :clients 
   validates :siret, numericality: true
   validates :siret, numericality: { only_integer: true }
   validates :siret, length: { is: 14 }
