@@ -10,7 +10,7 @@ RSpec.describe Company, type: :model do
       phone_number: "06 06 06 06 06",
     )
 
-    attributes = {
+    company_attributes = {
       user: user,
       name: "MONSIEUR BENOIT CALIN",
       siret: 	84955687300016,
@@ -25,6 +25,7 @@ RSpec.describe Company, type: :model do
       code_ape: '6201Z',
     }
   }
+
   it 'is valid with valid attributes' do
     company = Company.new(subject)
     expect(company).to be_valid
@@ -45,6 +46,36 @@ RSpec.describe Company, type: :model do
   it 'is not valid without legal_structure' do
     company = Company.new(subject)
     company.legal_structure = nil
+    expect(company).to_not be_valid
+  end 
+
+  it 'is not valid without street_number' do
+    company = Company.new(subject)
+    company.street_number = nil
+    expect(company).to_not be_valid
+  end
+  
+  it 'is not valid without street' do
+    company = Company.new(subject)
+    company.street = nil
+    expect(company).to_not be_valid
+  end
+
+  it 'is not valid without city' do
+    company = Company.new(subject)
+    company.city = nil
+    expect(company).to_not be_valid
+  end
+
+  it 'is not valid without country' do
+    company = Company.new(subject)
+    company.country = nil
+    expect(company).to_not be_valid
+  end
+
+  it "should be not valid without user references" do
+    company = Company.new(subject)
+    company.user = nil
     expect(company).to_not be_valid
   end
 
@@ -73,7 +104,8 @@ RSpec.describe Company, type: :model do
       company.vat = 20
       expect(company).to be_valid
     end
-  end 
+  end
+
   describe 'start_activity' do
     it 'is not valid without start_activity' do
       company = Company.new(subject)
@@ -87,17 +119,7 @@ RSpec.describe Company, type: :model do
       expect(company).to_not be_valid
     end
   end
-  it 'is not valid without street_number' do
-    company = Company.new(subject)
-    company.street_number = nil
-    expect(company).to_not be_valid
-  end
-  
-  it 'is not valid without street' do
-    company = Company.new(subject)
-    company.street = nil
-    expect(company).to_not be_valid
-  end
+
   describe "zip_code" do
     it 'is not valid without zip_code' do
       company = Company.new(subject)
@@ -112,19 +134,6 @@ RSpec.describe Company, type: :model do
       company.zip_code = 355555
       expect(company).to_not be_valid
     end
-  end 
-  
-
-  it 'is not valid without city' do
-    company = Company.new(subject)
-    company.city = nil
-    expect(company).to_not be_valid
-  end
-
-  it 'is not valid without country' do
-    company = Company.new(subject)
-    company.country = nil
-    expect(company).to_not be_valid
   end
 
   describe "code APE" do
@@ -139,6 +148,5 @@ RSpec.describe Company, type: :model do
       company.code_ape = "62010"
       expect(company).to_not be_valid
     end
-
   end
 end 
