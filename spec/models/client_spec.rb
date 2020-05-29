@@ -25,7 +25,7 @@ RSpec.describe Client, type: :model do
       code_ape: '6201Z',
     )
 
-    attributes = {
+    client_attributes = {
       company: company,
       name: "Maurice",
       email: "maurice.jean@gmail.com"
@@ -40,6 +40,12 @@ RSpec.describe Client, type: :model do
   it 'should be not valid without name' do
     client = Client.new(subject)
     client.name = nil
+    expect(client).to_not be_valid
+  end
+
+  it "should be not valid without company references" do
+    client = Client.new(subject)
+    client.company = nil
     expect(client).to_not be_valid
   end
 
@@ -59,11 +65,5 @@ RSpec.describe Client, type: :model do
       client.email = "bernard.gmail.com"
       expect(client).to_not be_valid
     end 
-  end 
-
-  it "should be not valid without company references" do
-    client = Client.new(subject)
-    client.company = nil
-    expect(client).to_not be_valid
   end
 end
