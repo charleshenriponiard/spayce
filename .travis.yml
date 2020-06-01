@@ -1,4 +1,5 @@
 language: ruby
+api_key: ENV["TRAVIS_KEY"]
 cache:
   bundler: true
   yarn: true
