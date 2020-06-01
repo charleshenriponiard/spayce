@@ -102,7 +102,7 @@ RSpec.describe Company, type: :model do
       expect(company).to be_valid
       company.vat = 10
       expect(company).to be_valid
-      company.vat = 20
+      company.vat = 21
       expect(company).to be_valid
     end
   end
