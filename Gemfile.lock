@@ -78,6 +78,7 @@ GEM
       responders
       warden (~> 1.2.3)
     diff-lcs (1.3)
+    docile (1.3.2)
     dotenv (2.7.5)
     dotenv-rails (2.7.5)
       dotenv (= 2.7.5)
@@ -194,6 +195,10 @@ GEM
     simple_form (5.0.2)
       actionpack (>= 5.0)
       activemodel (>= 5.0)
+    simplecov (0.18.5)
+      docile (~> 1.1)
+      simplecov-html (~> 0.11)
+    simplecov-html (0.12.2)
     spring (2.1.0)
     spring-watcher-listen (2.0.1)
       listen (>= 2.7, < 4.0)
@@ -251,6 +256,7 @@ DEPENDENCIES
   rspec-rails (~> 4.0.0)
   sassc-rails
   simple_form
+  simplecov
   spring
   spring-watcher-listen (~> 2.0.0)
   uglifier
