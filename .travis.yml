@@ -14,8 +14,9 @@ addons:
 before_script:
   - psql -c 'create database spayce_test;' -U postgres
 script:
-  - bundle exec rake db:schema:load
-  - bundle exec rake db:test:prepare
-  -  bundle exec rake assets:precompile
-  - bundle exec rake test
-  - bundle exec rake test:system
+  - bundle exec rake 
+  # - bundle exec rake db:schema:load
+  # - bundle exec rake db:test:prepare
+  # - bundle exec rake assets:precompile
+  # - bundle exec rake test
+  # - bundle exec rake test:system
