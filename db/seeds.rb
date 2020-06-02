@@ -1,3 +1,5 @@
+require 'faker'
+
 puts "Remove all Invoices"
 Invoice.delete_all
 puts "Remove all Client"
@@ -76,14 +78,11 @@ puts "*" * 40
 puts "Clients"
 companies = Company.all
 companies.each do |company|
-  3..4.times do
-    name = Faker::Name.name
-    company.clients.create!(
-      company_id: company.id,
-      name: name,
-      email: "#{name.tr(" ", ".").downcase}@gmail.com"
-    )
-  end
+  name = Faker::Name.name
+  company.clients.create!(
+    name: name,
+    email: "#{name.tr(" ", ".").downcase}@gmail.com"
+  )
 end 
 puts "*" * 40
 puts "Clients create !"

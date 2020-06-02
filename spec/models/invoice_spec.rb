@@ -38,7 +38,7 @@ RSpec.describe Invoice, type: :model do
       file: "en attente de mieux",
       description: "Je suis une description test pour vérifier si ça fonctionne bien !",
       ref_number: "A1234GTE",
-      end_date: Date.today - 1,
+      end_date: Date.today + 10,
       status: 1,
       code_promo: "SPAYCE",
     }
@@ -102,9 +102,9 @@ RSpec.describe Invoice, type: :model do
       expect(invoice).to_not be_valid
     end
 
-    it "end_date can't be in the future" do
+    it "end_date can't be in the past" do
       invoice = Invoice.new(subject)
-      invoice.end_date = Date.today + 1
+      invoice.end_date = Date.today - 1
       expect(invoice).to_not be_valid
     end
   end
