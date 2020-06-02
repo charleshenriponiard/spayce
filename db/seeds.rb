@@ -1,3 +1,4 @@
+require 'faker'
 
 puts "Remove all Invoices"
 Invoice.delete_all
