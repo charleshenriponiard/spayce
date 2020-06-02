@@ -1,0 +1,22 @@
+language: ruby
+api_key: ENV["TRAVIS_KEY"]
+cache:
+  bundler: true
+  yarn: true
+services:
+  - redis-server
+sudo: required
+before_install:
+- sudo apt-get update
+- sudo apt-get install google-chrome-stable
+addons:
+  postgresql: '9.6'
+before_script:
+  - psql -c 'create database spayce_test;' -U postgres
+script:
+  - bundle exec rake 
+  # - bundle exec rake db:schema:load
+  # - bundle exec rake db:test:prepare
+  # - bundle exec rake assets:precompile
+  # - bundle exec rake test
+  # - bundle exec rake test:system
