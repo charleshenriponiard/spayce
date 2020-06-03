@@ -1,0 +1,25 @@
+.connection-layout {
+	display: flex;
+  justify-content: space-around;
+  .form-connection {
+    width: 100%;
+    margin: 20px;
+  }
+  
+  .img-connection {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .left-img {
+      width: 100%;
+    }
+  } 
+}
+
+.card {
+  margin-top: 50px;
+  border: none;
+  .card-body {
+    padding: 0;
+  }
+}
