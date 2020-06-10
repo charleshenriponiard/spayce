@@ -11,11 +11,14 @@
     <%= f.input :City %>
     <%= f.input :Region %>
     <%= f.input :PostalCode %>
-    <%= f.input :Country %>
+    <%= f.label :Country %>
+    <%= f.country_select :Country, {selected: "FR"}, { class: 'form-control' } %>
     <%= f.input :BirthPlace %>
     <%= f.input :Birthday, as: :date, html5: true %>
-    <%= f.input :Nationality %>
-    <%= f.input :CountryOfResidence %>
+    <%= f.label :Nationality %>
+    <%= f.country_select :Nationality, {selected: "FR"}, { class: 'form-control' } %>
+    <%= f.label :CountryOfResidence %>
+    <%= f.country_select :CountryOfResidence, {selected: "FR"}, { class: 'form-control' } %>
     <%= f.input :Occupation %>
     <%= f.input :InComeRange %>
     
