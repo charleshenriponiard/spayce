@@ -6,16 +6,16 @@
     <%= f.input :Email %>
     <%= f.input :FirstName %>
     <%= f.input :LastName %>
-    <%= f.input :AddressLine1, name: "mangopay_users[:address]" %>
+    <%= f.input :AddressLine1 %>
     <%= f.input :AddressLine2 %>
     <%= f.input :City %>
     <%= f.input :Region %>
     <%= f.input :PostalCode %>
     <%= f.input :Country %>
     <%= f.input :BirthPlace %>
-    <%= f.input :Birthday %>
+    <%= f.input :Birthday, as: :date, html5: true %>
     <%= f.input :Nationality %>
-    <%= f.input :CountryOfRestsidance %>
+    <%= f.input :CountryOfResidence %>
     <%= f.input :Occupation %>
     <%= f.input :InComeRange %>
     
