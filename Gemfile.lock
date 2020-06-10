@@ -104,6 +104,8 @@ GEM
       nokogiri (>= 1.5.9)
     mail (2.7.1)
       mini_mime (>= 0.1.1)
+    mangopay (3.0.33)
+      multi_json (>= 1.7.7)
     marcel (0.3.3)
       mimemagic (~> 0.3.2)
     method_source (1.0.0)
@@ -112,6 +114,7 @@ GEM
     mini_portile2 (2.4.0)
     minitest (5.14.1)
     msgpack (1.3.3)
+    multi_json (1.14.1)
     nio4r (2.5.2)
     nokogiri (1.10.9)
       mini_portile2 (~> 2.4.0)
@@ -247,6 +250,7 @@ DEPENDENCIES
   font-awesome-sass (~> 5.12.0)
   jbuilder (~> 2.0)
   listen (~> 3.0.5)
+  mangopay
   pg (~> 0.21)
   pry-byebug
   pry-rails

@@ -1,0 +1,24 @@
+<h1>Create MangoPay user</h1>
+
+<div class="container">
+  <%= simple_form_for("mangopay_users", method: :post, url: mangopay_users_path) do |f| %>
+    <%= f.input :Tag %>
+    <%= f.input :Email %>
+    <%= f.input :FirstName %>
+    <%= f.input :LastName %>
+    <%= f.input :AddressLine1, name: "mangopay_users[:address]" %>
+    <%= f.input :AddressLine2 %>
+    <%= f.input :City %>
+    <%= f.input :Region %>
+    <%= f.input :PostalCode %>
+    <%= f.input :Country %>
+    <%= f.input :BirthPlace %>
+    <%= f.input :Birthday %>
+    <%= f.input :Nationality %>
+    <%= f.input :CountryOfRestsidance %>
+    <%= f.input :Occupation %>
+    <%= f.input :InComeRange %>
+    
+    <%= f.submit class:"btn btn-primary" %>
+  <% end  %>
+</div>
