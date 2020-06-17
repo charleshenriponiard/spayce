@@ -1,5 +1,5 @@
 module Mangopay
-  class UsersController < ApplicationController
+  class UsersController < MangopaysController
     def new
       @mp_user = MangoPay::LegalUser.new()
     end
@@ -8,7 +8,6 @@ module Mangopay
       begin
       @mp_user = MangoPay::LegalUser.create(params_formated)
       current_user.update(mp_user_id: @mp_user["Id"].to_i)
-      byebug
       redirect_to root_path
       rescue MangoPay::ResponseError => e
         @mp_errors = e
