@@ -18,6 +18,7 @@ gem 'webpacker'
 gem 'faker'
 gem 'mangopay'
 gem 'country_select'
+gem 'rest-client'
 
 group :development do
   gem 'web-console', '>= 3.3.0'
