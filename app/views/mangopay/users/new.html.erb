@@ -1,0 +1,50 @@
+<h1 class="text-center">Create MangoPay user</h1>
+<% unless @mp_errors.nil? %>
+  <div class="alert alert-danger fixed-top" style="height: 100px;" role="alert">
+    <ol>
+    <% @mp_errors.errors.each do |error|  %>
+      <ul><p><%= error[1] %></p></ul>
+    <% end %>
+    </ol>
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+<% end  %>
+<div class="container mb-5">
+  <%= simple_form_for('mangopay_users', method: :post, url: mangopay_users_path) do |f| %>
+    
+    <div>
+      <h3>Personal info</h3>
+      <%# , error: @mp_errors.errors['Email'] unless @mp_errors.nil?  %>
+      <%= f.input :LegalRepresentativeFirstName %>
+      <%= f.input :LegalRepresentativeLastName %>
+      <%= f.input :LegalRepresentativeEmail, as: :email, required: true, pattern: "[-a-zA-Z0-9._]+@[a-zA-Z0-9\-._ ]+\.[a-zA-Z0-9\-._ ]+" %>
+      <% if @mp_errors.present? %>
+        <% data = @mp_errors.errors['Address.AddressLine1'] %>
+      <% else %>
+        <% data = "" %>
+      <% end %>
+      <%= f.input :AddressLine1, required: true %>
+      <%= f.input :AddressLine2 %>
+      <%= f.input :City %>
+      <%= f.input :PostalCode %>
+      <%= f.label :Country %>
+      <%= f.country_select :Country, {selected: "FR"}, { class: 'form-control' } %>
+      <%= f.label :LegalRepresentativeNationality %>
+      <%= f.country_select :LegalRepresentativeNationality, {selected: "FR"}, { class: 'form-control' } %>
+      <%= f.label :LegalRepresentativeCountryOfResidence %>
+      <%= f.country_select :LegalRepresentativeCountryOfResidence, {selected: "FR"}, { class: 'form-control' } %>
+      <%= f.input :LegalRepresentativeBirthday, as: :date %>
+      <%= f.input :LegalPersonType %>
+    </div>
+    <div>
+      <h3>Company info</h3>
+      <%= f.input :Name %>
+      <%= f.input :Email, as: :email, required: true, pattern: "[-a-zA-Z0-9._]+@[a-zA-Z0-9\-._ ]+\.[a-zA-Z0-9\-._ ]+" %>
+      <%= f.input :CompanyNumber %>
+    </div>
+    
+    <%= f.submit class:"btn btn-primary mt-5" %>
+  <% end  %>
+</div>

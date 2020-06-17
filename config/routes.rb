@@ -3,6 +3,13 @@ Rails.application.routes.draw do
   root to: 'pages#home'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 
-  get "mangopay_users/new", to: "mangopay_users#new", as: "new_mangopay_user" 
-  post "mangopay_users", to: "mangopay_users#create" 
+  namespace :mangopay do
+    get "users/new", to: "users#new"
+    post "users", to: "users#create"
+
+    get "pages/new", to: "kycs#new"
+    post "pages", to: "kycs#create"
+
+  end 
+
 end
