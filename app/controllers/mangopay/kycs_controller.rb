@@ -1,7 +1,7 @@
 require "base64"
 
 module Mangopay
-  class KycsController < ApplicationController
+  class KycsController < MangopaysController
     include HTTParty
 
     def new
@@ -14,7 +14,8 @@ module Mangopay
         'Content-Type' => 'application/json', 
         'Authorization' => "Basic #{encoding}"
       }
-      response  = self.class.post(uri, body: body, headers: headers)
+      response = self.class.post(uri, body: body, headers: headers)
+      byebug
     end 
 
     private 
