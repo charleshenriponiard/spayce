@@ -12,17 +12,18 @@ module Mangopay
       @mp_document = Mangopay::Document.new(mangopay_document_params)
       @mp_document.mp_user_id = current_user.mp_user_id
       @mp_document.save
-      if @mp_document.valid? 
-        redirect_to root_path
-      else
+      # render :new unless @mp_document.valid?
+      response = @mp_document.save_file
+      if response["error"].nil?
+        @mp_document.errors.messages.merge!(response["errors"])
         render :new
-      end
+      end 
     end
 
     private 
 
     def mangopay_document_params
-      params.require(:mangopay_document).permit(:type)
+      params.require(:mangopay_document).permit(:type, :file)
     end 
 
   end
