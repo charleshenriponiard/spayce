@@ -12,8 +12,8 @@
   </div>
 <% end  %>
 <div class="container mb-5">
-  <%= simple_form_for('mangopay_users', method: :post, url: mangopay_users_path) do |f| %>
-    
+  <%= simple_form_for(@mp_user, method: :post, url: mangopay_users_path) do |f| %>
+
     <div>
       <h3>Personal info</h3>
       <%# , error: @mp_errors.errors['Email'] unless @mp_errors.nil?  %>
@@ -44,7 +44,7 @@
       <%= f.input :Email, as: :email, required: true, pattern: "[-a-zA-Z0-9._]+@[a-zA-Z0-9\-._ ]+\.[a-zA-Z0-9\-._ ]+" %>
       <%= f.input :CompanyNumber %>
     </div>
-    
+
     <%= f.submit class:"btn btn-primary mt-5" %>
   <% end  %>
 </div>
