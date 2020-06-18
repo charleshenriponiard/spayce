@@ -7,8 +7,8 @@ Rails.application.routes.draw do
     get "users/new", to: "users#new"
     post "users", to: "users#create"
 
-    get "pages/new", to: "kycs#new"
-    post "pages", to: "kycs#create"
+    get "pages/new", to: "documents#new"
+    post "pages", to: "documents#create"
 
   end 
 

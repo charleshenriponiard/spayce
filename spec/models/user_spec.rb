@@ -23,6 +23,17 @@ RSpec.describe User, type: :model do
     expect(user).to_not be_valid
   end
 
+  it 'should be only an integer' do
+    user = User.new(subject)
+    expect(user).to be_valid
+
+    user.mp_user_id = 'test'
+    expect(user).to_not be_valid
+
+    user.mp_user_id = 4
+    expect(user).to be_valid
+  end
+
   it 'should be not valid without last_name attribute' do
     user = User.new(subject)
     user.last_name = nil
