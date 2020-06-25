@@ -1,2 +1,6 @@
 <h1>Pages#home</h1>
 <p>Find me in app/views/pages/home.html.erb</p>
+
+<% unless @mp_document.nil? %>
+  <%= @mp_document.messages %>
+<% end %>

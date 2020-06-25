@@ -1,0 +1,12 @@
+<h1>CREATE DOCUMENT</h1>
+
+<div class="container">
+  <%= simple_form_for(@mp_document, method: :post, url: mangopay_pages_path) do |f| %>
+    <%= f.input :type, label: "Type de document", collection: Mangopay::Document::DOCUMENTS, prompt: "Selectionner votre document" %>
+    <%= f.file_field :file %>
+    <% unless @mp_document.errors.messages.first.blank? %>
+      <%= @mp_document.errors.messages %>
+    <% end  %>
+    <%= f.submit class:"btn btn-primary" %>
+  <% end  %>
+</div>
