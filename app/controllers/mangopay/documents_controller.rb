@@ -11,10 +11,10 @@ module Mangopay
     def create
       @mp_document = Mangopay::Document.new(mangopay_document_params)
       @mp_document.mp_user_id = current_user.mp_user_id
-      @mp_document.save
+      @mp_document.create_document
       # render :new unless @mp_document.valid?
-      @mp_document.save_file
-      @mp_document.submit_kyc
+      @mp_document.create_file
+      @mp_document.submit_document
       @mp_document.get_docs
 
       if response["error"]

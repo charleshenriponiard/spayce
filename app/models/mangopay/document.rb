@@ -10,10 +10,8 @@ class Mangopay::Document
   validates :type, presence: true
   validates :type, inclusion: { in: DOCUMENTS,  message: "%{value} n'est pas valide" }
 
-  # has_one_attached :page
 
-  def save
-    #create document
+  def create_document
     uri = "users/#{mp_user_id}/kyc/documents/"
     body = { "Type"=> "#{type.upcase.tr(" ", "_")}" }.to_json
     headers = {
@@ -24,8 +22,7 @@ class Mangopay::Document
     self.mp_document_id = response["Id"].to_i
   end
 
-  def save_file
-    #create KYC page
+  def create_file
     uri = "users/#{mp_user_id}/kyc/documents/#{mp_document_id}/pages/"
     body = { "File"=> "#{encoding_file}" }.to_json
     headers = {
@@ -36,8 +33,7 @@ class Mangopay::Document
     return response
   end
 
-  def submit_kyc
-    # Submit a KYC Document
+  def submit_document
     uri = "users/#{mp_user_id}/kyc/documents/#{mp_document_id}"
     body = {  "Tag": "custom meta",
               "Status": "VALIDATION_ASKED" }.to_json
