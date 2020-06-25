@@ -13,10 +13,15 @@ module Mangopay
       @mp_document.mp_user_id = current_user.mp_user_id
       @mp_document.save
       # render :new unless @mp_document.valid?
-      response = @mp_document.save_file
-      if response["error"].nil?
+      @mp_document.save_file
+      @mp_document.submit_kyc
+      @mp_document.get_docs
+
+      if response["error"]
         @mp_document.errors.messages.merge!(response["errors"])
         render :new
+      else
+        redirect_to root_path
       end 
     end
 
